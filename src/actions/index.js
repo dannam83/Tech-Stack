@@ -1,4 +1,4 @@
-export const selectLibrary = (id) => {
+export const selectLibrary = (libraryId) => {
   return {
     type: selectLibrary,
     payload: libraryId
