@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import { ListItem } from './ListItem';
+import ListItem from './ListItem';
 
 class LibraryList extends Component {
   renderItem(library) {
@@ -9,11 +9,12 @@ class LibraryList extends Component {
   }
 
   render() {
+    console.log(this.props.libraries);
     return (
       <FlatList
         data={this.props.libraries}
         renderItem={this.renderItem}
-        keyExtractor={(library) => library.id}
+        keyExtractor={(library) => library.id.toString()}
       />
     );
   }
@@ -21,7 +22,7 @@ class LibraryList extends Component {
 
 const mapStateToProps = state => {
   return {
-    library: state.libraries
+    libraries: state.libraries
   };
 };
 
